@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trans de la Rueda | Transporte de carga nacional</title>
+  <meta name="description" content="Trans de la Rueda ofrece transporte de carga seca y refrigerada en toda la República Mexicana. Cotiza por WhatsApp desde Aguascalientes." />
+
+  <style>
+    :root{
+      --azul:#0f4fc5;
+      --azul-oscuro:#142544;
+      --rosa:#f2188f;
+      --negro:#111111;
+      --gris:#f4f6fa;
+      --gris-texto:#5b6472;
+      --blanco:#ffffff;
+      --borde:#dfe5ef;
+      --verde:#25D366;
+      --verde-hover:#1fb85a;
+      --sombra:0 10px 28px rgba(10, 20, 40, 0.10);
+      --radio:18px;
+      --max:1180px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--negro);
+      background:var(--gris);
+      line-height:1.6;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border:none;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-whatsapp{
+      background:var(--verde);
+      color:#fff;
+      box-shadow:0 8px 18px rgba(37,211,102,.25);
+    }
+
+    .btn-whatsapp:hover{
+      background:var(--verde-hover);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:2px solid rgba(255,255,255,.85);
+      color:#fff;
+    }
+
+    .btn-azul{
+      background:var(--azul);
+      color:#fff;
+    }
+
+    .btn-azul:hover{
+      background:#0c43a7;
+    }
+
+    .section{
+      padding:72px 0;
+    }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size:36px;
+      line-height:1.1;
+      color:var(--azul-oscuro);
+    }
+
+    .section-text{
+      margin:0 0 28px;
+      color:var(--gris-texto);
+      max-width:760px;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(20,37,68,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand img{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:#fff;
+      object-fit:cover;
+      padding:4px;
+      box-shadow:0 4px 12px rgba(0,0,0,.18);
+    }
+
+    .brand-text h1{
+      margin:0;
+      color:#fff;
+      font-size:24px;
+      line-height:1.1;
+    }
+
+    .brand-text p{
+      margin:3px 0 0;
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      opacity:.92;
+    }
+
+    .menu a:hover{
+      opacity:1;
+      color:#fff;
+    }
+
+    /* Hero */
+    .hero{
+      background:
+        linear-gradient(rgba(20,37,68,.75), rgba(17,17,17,.70)),
+        url("imagenes/camion1.png");
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+      padding:72px 0 96px;
+      position:relative;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(15,79,197,.12), rgba(242,24,143,.10));
+      pointer-events:none;
+    }
+
+    .hero > .container{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      background:rgba(242,24,143,.18);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    .hero h2{
+      margin:0 0 16px;
+      font-size:54px;
+      line-height:1.03;
+      letter-spacing:-.02em;
+      max-width:780px;
+    }
+
+    .hero p{
+      margin:0 0 24px;
+      font-size:18px;
+      max-width:720px;
+      color:rgba(255,255,255,.92);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      max-width:700px;
+    }
+
+    .point{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      padding:14px 16px;
+      font-weight:700;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:22px;
+      padding:26px;
+      box-shadow:var(--sombra);
+      backdrop-filter:blur(3px);
+    }
+
+    .hero-card h3{
+      margin:0 0 12px;
+      font-size:28px;
+    }
+
+    .hero-card p{
+      margin:8px 0;
+      font-size:16px;
+    }
+
+    .hero-card .mini{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.18);
+      font-size:14px;
+      color:rgba(255,255,255,.88);
+    }
+
+    /* Franja métricas */
+    .stats{
+      margin-top:-34px;
+      position:relative;
+      z-index:2;
+    }
+
+    .stats-wrap{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      background:#fff;
+      border:1px solid var(--borde);
+      border-radius:22px;
+      box-shadow:var(--sombra);
+      padding:18px;
+    }
+
+    .stat{
+      background:#f9fbff;
+      border:1px solid #e4eaf4;
+      border-radius:16px;
+      text-align:center;
+      padding:16px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:24px;
+      color:var(--azul-oscuro);
+    }
+
+    .stat span{
+      color:var(--gris-texto);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    /* Tarjetas */
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--borde);
+      border-radius:var(--radio);
+      box-shadow:var(--sombra);
+      padding:24px;
+    }
+
+    .card.alt{
+      background:#fbfcff;
+    }
+
+    .card h3,
+    .card h4{
+      margin:0 0 10px;
+      color:var(--azul-oscuro);
+    }
+
+    .icon{
+      width:50px;
+      height:50px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      margin-bottom:14px;
+      font-size:24px;
+      background:linear-gradient(135deg, rgba(15,79,197,.12), rgba(242,24,143,.12));
+    }
+
+    /* Servicios */
+    .service-img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:14px;
+      border:1px solid #e4eaf4;
+    }
+
+    /* Banda */
+    .band{
+      background:linear-gradient(135deg, var(--azul-oscuro), #1f3769);
+      color:#fff;
+    }
+
+    .band .section-title{
+      color:#fff;
+    }
+
+    .band .section-text{
+      color:rgba(255,255,255,.86);
+    }
+
+    .checklist{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .check{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      padding:14px 16px;
+      font-weight:700;
+    }
+
+    /* Galería */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .gallery-item{
+      background:#fff;
+      border:1px solid var(--borde);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--sombra);
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    /* Formulario */
+    .quote-wrap{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+      font-weight:700;
+      color:var(--azul-oscuro);
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:14px;
+      border:1px solid #cfd8e3;
+      border-radius:12px;
+      font:inherit;
+      background:#fff;
+      color:var(--negro);
+      outline:none;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      border-color:#7aa2ff;
+      box-shadow:0 0 0 3px rgba(15,79,197,.10);
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .form-note{
+      font-size:14px;
+      color:var(--gris-texto);
+      margin-top:4px;
+    }
+
+    /* Contacto */
+    .contact-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .contact-item p{
+      margin:8px 0 0;
+      color:var(--gris-texto);
+      word-break:break-word;
+    }
+
+    /* Footer */
+    footer{
+      background:#0d1526;
+      color:#fff;
+      padding:28px 0;
+      margin-top:20px;
+    }
+
+    .footer-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .footer-wrap p{
+      margin:0;
+      color:rgba(255,255,255,.8);
+    }
+
+    /* WhatsApp flotante */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--verde);
+      color:#fff;
+      font-size:30px;
+      box-shadow:0 10px 24px rgba(37,211,102,.35);
+      z-index:100;
+    }
+
+    .whatsapp-float:hover{
+      background:var(--verde-hover);
+      transform:translateY(-1px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-grid,
+      .quote-wrap,
+      .grid-3,
+      .grid-2,
+      .gallery,
+      .contact-cards,
+      .stats-wrap{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h2{
+        font-size:44px;
+      }
+    }
+
+    @media (max-width: 760px){
+      .menu{
+        display:none;
+      }
+
+      .hero{
+        padding:54px 0 78px;
+      }
+
+      .hero-grid,
+      .quote-wrap,
+      .grid-3,
+      .grid-2,
+      .gallery,
+      .contact-cards,
+      .stats-wrap,
+      .form-grid,
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .hero h2{
+        font-size:34px;
+      }
+
+      .section{
+        padding:56px 0;
+      }
+
+      .section-title{
+        font-size:28px;
+      }
+
+      .brand img{
+        width:56px;
+        height:56px;
+      }
+
+      .brand-text h1{
+        font-size:20px;
+      }
+
+      .gallery-item img,
+      .service-img{
+        height:220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <img src="logo.jpg" alt="Logo Trans de la Rueda">
+        <div class="brand-text">
+          <h1>Trans de la Rueda</h1>
+          <p>Transporte de carga a nivel nacional</p>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#flotilla">Flotilla</a>
+        <a href="#cotizacion">Cotización</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Servicio nacional • Carga seca y refrigerada</span>
+        <h2>Movemos tu carga con seguridad, puntualidad y atención rápida</h2>
+        <p>
+          En Trans de la Rueda brindamos soluciones de transporte para empresas y particulares,
+          con base en Aguascalientes y cobertura en toda la República Mexicana.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/524499991454?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank">Cotizar por WhatsApp</a>
+          <a class="btn btn-outline" href="#cotizacion">Solicitar cotización</a>
+        </div>
+
+        <div class="hero-points">
+          <div class="point">🚛 Tractocamión 53 y 48 pies</div>
+          <div class="point">❄️ Transporte thermo</div>
+          <div class="point">📦 Carga seca</div>
+          <div class="point">🇲🇽 Cobertura nacional</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Atención inmediata</h3>
+        <p><strong>Ciudad base:</strong> Aguascalientes</p>
+        <p><strong>WhatsApp:</strong> 449 999 14 54</p>
+        <p><strong>Teléfonos:</strong> 449 999 14 54 / 449 205 34 80</p>
+        <p><strong>Correos:</strong><br>transdelarueda@hotmail.com<br>delaruedatrans@gmail.com</p>
+        <div class="mini">
+          Atención directa para cotizaciones, seguimiento y coordinación de servicio.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats">
+    <div class="stats-wrap">
+      <div class="stat">
+        <strong>53 / 48</strong>
+        <span>Cajas disponibles</span>
+      </div>
+      <div class="stat">
+        <strong>Frío / Seco</strong>
+        <span>Tipos de servicio</span>
+      </div>
+      <div class="stat">
+        <strong>Nacional</strong>
+        <span>Cobertura en México</span>
+      </div>
+      <div class="stat">
+        <strong>WhatsApp</strong>
+        <span>Cotización rápida</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <h2 class="section-title">Nuestros servicios</h2>
+      <p class="section-text">
+        Ofrecemos soluciones confiables para distintos tipos de carga, con atención personalizada y respuesta rápida.
+      </p>
+
+      <div class="grid-3">
+        <article class="card alt">
+          <img src="imagenes/camion2.png" alt="Tractocamión Trans de la Rueda" class="service-img">
+          <div class="icon">🚛</div>
+          <h3>Tractocamión</h3>
+          <p>Servicio con caja de 53 y 48 pies para movimientos de carga a diferentes destinos del país.</p>
+        </article>
+
+        <article class="card alt">
+          <img src="imagenes/camion3.png" alt="Unidad de transporte refrigerado" class="service-img">
+          <div class="icon">❄️</div>
+          <h3>Transporte refrigerado</h3>
+          <p>Servicio thermo para mercancía que requiere control de temperatura durante el traslado.</p>
+        </article>
+
+        <article class="card alt">
+          <img src="imagenes/camion10.png" alt="Rabón caja seca Trans de la Rueda" class="service-img">
+          <div class="icon">📦</div>
+          <h3>Rabón caja seca</h3>
+          <p>Opción práctica y eficiente para distintos movimientos de carga seca y reparto especializado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="nosotros">
+    <div class="container">
+      <h2 class="section-title">Nosotros</h2>
+      <p class="section-text">
+        En Trans de la Rueda somos una empresa comprometida con brindar un servicio seguro,
+        puntual y confiable para empresas y particulares.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.12); color:#fff;">
+          <h3 style="color:#fff;">Quiénes somos</h3>
+          <p>
+            Con base en Aguascalientes, ofrecemos cobertura nacional para el traslado de mercancía
+            seca y refrigerada, adaptándonos a las necesidades de cada cliente con atención directa y trato profesional.
+          </p>
+        </div>
+
+        <div class="card" style="background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.12); color:#fff;">
+          <h3 style="color:#fff;">Nuestra prioridad</h3>
+          <p>
+            Nuestra prioridad es que cada carga llegue en tiempo y en las mejores condiciones,
+            ofreciendo soluciones eficientes, comunicación clara y respuesta rápida para cada cotización.
+          </p>
+        </div>
+      </div>
+
+      <div class="checklist">
+        <div class="check">✔ Atención rápida y directa</div>
+        <div class="check">✔ Servicio confiable y puntual</div>
+        <div class="check">✔ Opciones para carga seca y refrigerada</div>
+        <div class="check">✔ Cobertura en toda la República Mexicana</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="flotilla">
+    <div class="container">
+      <h2 class="section-title">Nuestra flotilla</h2>
+      <p class="section-text">
+        Contamos con unidades en excelentes condiciones para brindar un servicio seguro, confiable y profesional.
+      </p>
+
+      <div class="gallery">
+        <div class="gallery-item"><img src="imagenes/camion1.png" alt="Unidad 1"></div>
+        <div class="gallery-item"><img src="imagenes/camion2.png" alt="Unidad 2"></div>
+        <div class="gallery-item"><img src="imagenes/camion3.png" alt="Unidad 3"></div>
+        <div class="gallery-item"><img src="imagenes/camion4.png" alt="Unidad 4"></div>
+        <div class="gallery-item"><img src="imagenes/camion5.png" alt="Unidad 5"></div>
+        <div class="gallery-item"><img src="imagenes/camion6.png" alt="Unidad 6"></div>
+        <div class="gallery-item"><img src="imagenes/camion7.png" alt="Unidad 7"></div>
+        <div class="gallery-item"><img src="imagenes/camion8.png" alt="Unidad 8"></div>
+        <div class="gallery-item"><img src="imagenes/camion9.png" alt="Unidad 9"></div>
+        <div class="gallery-item"><img src="imagenes/camion10.png" alt="Unidad 10"></div>
+        <div class="gallery-item"><img src="imagenes/camion11.png" alt="Unidad 11"></div>
+        <div class="gallery-item"><img src="imagenes/camion12.png" alt="Unidad 12"></div>
+        <div class="gallery-item"><img src="imagenes/camion13.png" alt="Unidad 13"></div>
+        <div class="gallery-item"><img src="imagenes/camion14.png" alt="Unidad 14"></div>
+        <div class="gallery-item"><img src="imagenes/camion15.png" alt="Unidad 15"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cotizacion">
+    <div class="container">
+      <h2 class="section-title">Solicita tu cotización</h2>
+      <p class="section-text">
+        Llena este formulario y al enviarlo se abrirá WhatsApp con tu solicitud lista para enviarse.
+      </p>
+
+      <div class="quote-wrap">
+        <div class="card">
+          <form id="quoteForm">
+            <div class="form-grid">
+              <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+              <div>
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+              </div>
+              <div>
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com">
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="origen">Origen</label>
+                <input type="text" id="origen" name="origen" placeholder="Ciudad de origen" required>
+              </div>
+              <div>
+                <label for="destino">Destino</label>
+                <input type="text" id="destino" name="destino" placeholder="Ciudad de destino" required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="tipoCarga">Tipo de carga</label>
+                <select id="tipoCarga" name="tipoCarga" required>
+                  <option value="">Selecciona una opción</option>
+                  <option>Seca</option>
+                  <option>Refrigerada</option>
+                  <option>General</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div>
+                <label for="unidad">Unidad requerida</label>
+                <select id="unidad" name="unidad">
+                  <option value="">Selecciona una opción</option>
+                  <option>Tractocamión caja 53 pies</option>
+                  <option>Tractocamión caja 48 pies</option>
+                  <option>Thermo</option>
+                  <option>Rabón caja seca</option>
+                  <option>No estoy seguro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="fecha">Fecha estimada</label>
+                <input type="date" id="fecha" name="fecha">
+              </div>
+              <div>
+                <label for="peso">Peso o volumen</label>
+                <input type="text" id="peso" name="peso" placeholder="Ej. 10 toneladas / 20 pallets">
+              </div>
+            </div>
+
+            <div>
+              <label for="detalles">Detalles adicionales</label>
+              <textarea id="detalles" name="detalles" placeholder="Describe tu carga o cualquier detalle importante"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-whatsapp">Enviar cotización por WhatsApp</button>
+            <p class="form-note">
+              Esta opción abre WhatsApp con tu solicitud completa y lista para enviarse.
+            </p>
+          </form>
+        </div>
+
+        <div class="card alt">
+          <h3>¿Qué puedes cotizar aquí?</h3>
+          <p>Puedes enviarnos información como:</p>
+          <ul style="padding-left:18px; margin-top:12px; color:var(--gris-texto);">
+            <li>Origen y destino</li>
+            <li>Tipo de carga</li>
+            <li>Unidad requerida</li>
+            <li>Fecha estimada</li>
+            <li>Peso, volumen o características especiales</li>
+          </ul>
+
+          <hr style="border:none; border-top:1px solid var(--borde); margin:22px 0;">
+
+          <h3>Atención directa</h3>
+          <p><strong>WhatsApp:</strong> 449 999 14 54</p>
+          <p><strong>Teléfonos:</strong> 449 999 14 54 / 449 205 34 80</p>
+          <p><strong>Correo 1:</strong> transdelarueda@hotmail.com</p>
+          <p><strong>Correo 2:</strong> delaruedatrans@gmail.com</p>
+
+          <p style="margin-top:20px;">
+            <a class="btn btn-azul" href="https://wa.me/524499991454?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank">Escribir ahora</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-text">
+        Estamos listos para apoyarte con tu servicio de transporte.
+      </p>
+
+      <div class="contact-cards">
+        <article class="card contact-item">
+          <div class="icon">📲</div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/524499991454?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank">449 999 14 54</a></p>
+        </article>
+
+        <article class="card contact-item">
+          <div class="icon">📞</div>
+          <h3>Teléfonos</h3>
+          <p>449 999 14 54<br>449 205 34 80</p>
+        </article>
+
+        <article class="card contact-item">
+          <div class="icon">✉️</div>
+          <h3>Correos</h3>
+          <p>transdelarueda@hotmail.com<br>delaruedatrans@gmail.com</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 Trans de la Rueda | Transporte de carga nacional</p>
+      <a class="btn btn-whatsapp" href="https://wa.me/524499991454?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20transporte." target="_blank">Cotizar ahora</a>
+    </div>
+  </footer>
+
+  <a
+    href="https://wa.me/524499991454?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20transporte."
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="WhatsApp"
+    title="Escríbenos por WhatsApp"
+  >💬</a>
+
+  <script>
+    const form = document.getElementById('quoteForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const empresa = document.getElementById('empresa').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const origen = document.getElementById('origen').value.trim();
+      const destino = document.getElementById('destino').value.trim();
+      const tipoCarga = document.getElementById('tipoCarga').value.trim();
+      const unidad = document.getElementById('unidad').value.trim();
+      const fecha = document.getElementById('fecha').value.trim();
+      const peso = document.getElementById('peso').value.trim();
+      const detalles = document.getElementById('detalles').value.trim();
+
+      let mensaje = "Hola, quiero cotizar un servicio de transporte.%0A%0A";
+      mensaje += "*Nombre:* " + nombre + "%0A";
+      if (empresa) mensaje += "*Empresa:* " + empresa + "%0A";
+      mensaje += "*Teléfono:* " + telefono + "%0A";
+      if (correo) mensaje += "*Correo:* " + correo + "%0A";
+      mensaje += "*Origen:* " + origen + "%0A";
+      mensaje += "*Destino:* " + destino + "%0A";
+      mensaje += "*Tipo de carga:* " + tipoCarga + "%0A";
+      if (unidad) mensaje += "*Unidad requerida:* " + unidad + "%0A";
+      if (fecha) mensaje += "*Fecha estimada:* " + fecha + "%0A";
+      if (peso) mensaje += "*Peso / volumen:* " + peso + "%0A";
+      if (detalles) mensaje += "*Detalles adicionales:* " + detalles + "%0A";
+
+      const url = "https://wa.me/524499991454?text=" + mensaje;
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
